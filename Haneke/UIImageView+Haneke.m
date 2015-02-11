@@ -156,17 +156,19 @@
     {
         successBlock(image);
     }
-    else if (animated)
-    {
-        [UIView transitionWithView:self duration:HNKViewSetImageAnimationDuration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            self.image = image;
-        } completion:nil];
-    }
     else
     {
-        self.image = image;
+        if (animated)
+        {
+            [UIView transitionWithView:self duration:0.1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                self.image = image;
+            } completion:nil];
+        }
+        else
+        {
+            self.image = image;
+        }
     }
-
 }
 
 - (BOOL)hnk_shouldCancelForKey:(NSString*)key
