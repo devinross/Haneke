@@ -18,7 +18,8 @@
 //  limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import CFNetwork;
 #import "HNKCache.h"
 
 enum
@@ -39,10 +40,37 @@ enum
  */
 - (instancetype)initWithURL:(NSURL*)URL;
 
+
+/**
+ Initializes a fetcher with the given URL.
+ @param URL Image URL.
+ @param priority Priority of the request.
+ */
+- (instancetype)initWithURL:(NSURL*)URL priority:(float)priority;
+
 /**
  Image URL.
  */
 @property (nonatomic, readonly) NSURL *URL;
+
+
+/*
+ * Sets a scaling factor for the priority of the task. The scaling factor is a
+ * value between 0.0 and 1.0 (inclusive), where 0.0 is considered the lowest
+ * priority and 1.0 is considered the highest.
+ *
+ * The priority is a hint and not a hard requirement of task performance. The
+ * priority of a task may be changed using this API at any time, but not all
+ * protocols support this; in these cases, the last priority that took effect
+ * will be used.
+ *
+ * If no priority is specified, the task will operate with the default priority
+ * as defined by the constant NSURLSessionTaskPriorityDefault. Two additional
+ * priority levels are provided: NSURLSessionTaskPriorityLow and
+ * NSURLSessionTaskPriorityHigh, but use is not restricted to these.
+ */
+@property (nonatomic, readonly) float priority;
+
 
 
 /**

@@ -22,18 +22,26 @@
 
 @implementation HNKNetworkFetcher {
     NSURL *_URL;
+	float _priority;
     BOOL _cancelled;
     NSURLSessionDataTask *_dataTask;
 }
 
 - (instancetype)initWithURL:(NSURL*)URL
 {
-    if (self = [super init])
-    {
-        _URL = URL;
-    }
-    return self;
+    return [self initWithURL:URL priority:NSURLSessionTaskPriorityDefault];
 }
+
+- (instancetype)initWithURL:(NSURL*)URL priority:(float)priority;
+{
+	if (self = [super init])
+	{
+		_URL = URL;
+		_priority = priority;
+	}
+	return self;
+}
+
 
 - (NSString*)key
 {
@@ -106,6 +114,7 @@
         });
         
     }];
+	_dataTask.priority = _priority;
     [_dataTask resume];
 }
 
