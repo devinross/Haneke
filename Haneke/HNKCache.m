@@ -172,7 +172,9 @@ NSString *const HNKErrorDomain = @"com.hpique.haneke";
         UIImage *image = [UIImage imageWithData:data];
         if (image)
         {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			
+			dispatch_async(dispatch_get_main_queue(), ^{
+            //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 UIImage *decompressedImage = [image hnk_decompressedImage];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self setMemoryImage:decompressedImage forKey:key format:format];
