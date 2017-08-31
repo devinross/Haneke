@@ -19,6 +19,7 @@
 //
 
 #import "HNKNetworkFetcher.h"
+@import CFNetwork;
 
 @implementation HNKNetworkFetcher {
     NSURL *_URL;
