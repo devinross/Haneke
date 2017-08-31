@@ -38,7 +38,7 @@ enum
  Initializes a fetcher with the given URL.
  @param URL Image URL.
  */
-- (instancetype)initWithURL:(NSURL*)URL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithURL:(NSURL*)URL;
 
 - (instancetype)init NS_UNAVAILABLE;
 

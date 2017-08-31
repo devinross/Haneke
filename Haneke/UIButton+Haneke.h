@@ -30,7 +30,7 @@
  @param state Control state that will use the image.
  @see hnk_setImageFromURL:forState:placeholder:success:failure:
  */
-- (void)hnk_setImageFromURL:(NSURL*)URL forState:(UIControlState)state;
+- (void)hnk_setImageFromURL:(NSURL*)url forState:(UIControlState)state;
 
 /** Loads, resizes, displays and caches an appropiately sized foreground image from the given url.
  @param url URL from which the image will be loaded if it's not available in the cache.
@@ -38,7 +38,7 @@
  @param placeholder Image to be used as a placeholder until the requested image is ready. The placeholder image will only be used if the requested image is not available in the memory cache. If nil, the button will not change its image until the requested image is ready.
  @see hnk_setImageFromURL:forState:placeholder:success:failure:
  */
-- (void)hnk_setImageFromURL:(NSURL*)URL forState:(UIControlState)state placeholder:(UIImage*)placeholder;
+- (void)hnk_setImageFromURL:(NSURL*)url forState:(UIControlState)state placeholder:(UIImage*)placeholder;
 
 /** Loads, resizes, displays and caches an appropiately sized foreground image from the given url. If a success block is provided you will be responsible for setting the image.
  @param url URL from which the image will be loaded if it's not available in the cache.

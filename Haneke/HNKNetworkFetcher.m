@@ -27,18 +27,17 @@
     NSURLSessionDataTask *_dataTask;
 }
 
-- (instancetype)initWithURL:(NSURL*)URL
-{
-    return [self initWithURL:URL priority:NSURLSessionTaskPriorityDefault];
+- (instancetype) initWithURL:(NSURL*)URL{
+	if(!(self=[super init])) return nil;
+	_URL = URL;
+	_priority = NSURLSessionTaskPriorityDefault;
+	return self;
 }
 
-- (instancetype)initWithURL:(NSURL*)URL priority:(float)priority;
-{
-	if (self = [super init])
-	{
-		_URL = URL;
-		_priority = priority;
-	}
+- (instancetype) initWithURL:(NSURL*)URL priority:(float)priority{
+	if(!(self=[super init])) return nil;
+	_URL = URL;
+	_priority = priority;
 	return self;
 }
 
