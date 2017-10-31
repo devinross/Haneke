@@ -385,6 +385,12 @@ NSString *const HNKErrorDomain = @"com.hpique.haneke";
     }];
 }
 
+- (void) clearAllImagesFromMemory{
+    [_memoryCaches enumerateKeysAndObjectsUsingBlock:^(id key, NSCache *cache, BOOL *stop) {
+        [cache removeAllObjects];
+    }];
+}
+
 @end
 
 @implementation HNKCacheFormat
